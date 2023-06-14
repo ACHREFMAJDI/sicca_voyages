@@ -12,14 +12,20 @@ class Transport extends Model
         'date_depart',
         'date_fin',
         'heure_depart',
+        "heure_arrivage",
+        "num",
+        "type",
+        "n_place",
+        "prix_achat",
+        "prix_vente"
         
     ];
     public function Packs()
     {
-        return $this->belongTo(Pack::class);
+        return $this->hasMany(Pack::class);
     }
     public function reservations()
     {
-        return $this->belongTo(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 }

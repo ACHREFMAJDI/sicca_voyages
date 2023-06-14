@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('vols', function (Blueprint $table) {
             $table->increments("id");
-            $table->string("depart");
-            $table->string("distination");
-            $table->string("date");
-            $table->string("escale");
-            $table->string("compagnie");
+            $table->string("n_vol");
+            $table->string("date_achat");
+            $table->string("date_depart");
+            $table->string("date_arrivée");
+            $table->string("h_arrivage");
+            $table->string("h_depart");
+            $table->string("type");
+            $table->string("prix_achat");
+            $table->string("prix_vente");
             $table->timestamps();
         });
     }

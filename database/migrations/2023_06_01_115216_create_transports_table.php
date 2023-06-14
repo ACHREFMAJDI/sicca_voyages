@@ -12,7 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transports', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
+            $table->string("date_depart");
+            $table->string("date_fin");
+            $table->string("heure_arrivage");
+            $table->string("num");
+            $table->string("type");
+            $table->string("n_place");
+            $table->string("prix_achat");
+            $table->string("prix_vente");
             $table->timestamps();
         });
     }

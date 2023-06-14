@@ -9,16 +9,18 @@ class Service extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'discription',
-        'prix',
+        "description",
+        "prix_achat",
+        "prix_vente",
+        "qte"
         
     ];
     public function Packs()
     {
-        return $this->belongTo(Pack::class);
+        return $this->hasMany(Pack::class);
     }
     public function reservations()
     {
-        return $this->belongTo(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 }

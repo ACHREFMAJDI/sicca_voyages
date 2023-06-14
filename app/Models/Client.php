@@ -12,9 +12,17 @@ class Client extends Model
         "nom",
         "prenom",
         "cin",
-        "pasport",
+        "passeport",
         "email",
         "tel"
     ];
+    public function factures()
+    {
+        return $this->hasMany(Facture::class);
+    }
+    public function users()
+    {
+        return $this->belongTo(User::class);
+    }
     
 }

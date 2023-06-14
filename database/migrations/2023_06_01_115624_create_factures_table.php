@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('factures', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
+            $table->integer("client_id");
+            $table->integer("reservation_id");
+            $table->string("total");
             $table->timestamps();
+            $table->foreign("client_id")->references("id")->on("clients")->onDelete("cascade");
+            $table->foreign("reservation_id")->references("id")->on("reservations")->onDelete("cascade");
         });
     }
 

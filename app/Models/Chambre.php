@@ -9,13 +9,16 @@ class Chambre extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_hotel',
-        'num_chambre',
-        'date_debut',
-        'date_fin',
-        'prix',
-        'num_etage',
-        'double_or_single'
+        "id_hotel",
+        "id_pack",
+        "id_reservation",
+        "n_place",
+        "num",
+        "date_debut",
+        "date_fin",
+        "prix_achat",
+        "prix_vente",
+        "num_etage"
     ];
     public function hotels()
     {
@@ -23,10 +26,10 @@ class Chambre extends Model
     }
     public function packs()
     {
-        return $this->belongTo(Pack::class);
+        return $this->hasMany(Pack::class);
     }
     public function reservations()
     {
-        return $this->belongTo(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 }

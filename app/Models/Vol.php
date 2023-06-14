@@ -10,18 +10,23 @@ class Vol extends Model
     use HasFactory;
     protected $fillable = [
         "n_vol",
-        "depart",
-        "distination",
-        "date",
-        "compagnie",
+        "date_achat",
+        "date_depart",
+        "date_arrivée",
+        "h_arrivage",
+        "h_depart",
+        "type",
+        "n_place",
+        "prix_achat",
+        "prix_vente"
         
     ];
     public function Packs()
     {
-        return $this->belongTo(Pack::class);
+        return $this->hasMany(Pack::class);
     }
     public function reservations()
     {
-        return $this->belongTo(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 }
