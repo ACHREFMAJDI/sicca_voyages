@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('index');
+});
+
+Route::get('/login', function () {
+    return view('login', 'layouts.app');
+});
+
+Route::get('/register', function () {
+    return view('register', 'layouts.app');
 });
 
 Auth::routes();

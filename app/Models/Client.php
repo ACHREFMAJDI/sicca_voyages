@@ -14,7 +14,8 @@ class Client extends Model
         "cin",
         "passeport",
         "email",
-        "tel"
+        "tel",
+        "user_id"
     ];
     public function factures()
     {
@@ -24,5 +25,4 @@ class Client extends Model
     {
         return $this->belongTo(User::class);
     }
-    
 }

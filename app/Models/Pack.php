@@ -13,22 +13,25 @@ class Pack extends Model
         "date_fin",
         "description",
         "destination",
-        "prix"
+        "prix",
+        "id_chambre",
+        "id_transport",
+        "id_service"
     ];
-    public function Chambres() 
+    public function Chambres()
     {
-        return $this->belongTo( Chambre::class );
+        return $this->belongTo(Chambre::class);
     }
-    public function vols() 
+    public function vols()
     {
-        return $this->belongTo( Vol::class );
+        return $this->belongTo(Vol::class);
     }
-    public function transports() 
+    public function transports()
     {
-        return $this->belongTo( Transport::class );
+        return $this->belongTo(Transport::class);
     }
-    public function services() 
+    public function services()
     {
-        return $this->belongTo( Service::class );
+        return $this->belongTo(Service::class);
     }
 }

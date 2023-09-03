@@ -10,26 +10,30 @@ class Reservation extends Model
     use HasFactory;
     protected $fillable = [
         "date_reservation",
+        "id_vol",
+        "id_chambre",
+        "id_transport",
+        "id_service"
     ];
     public function factures()
     {
         return $this->hasMany(Facture::class);
     }
-    public function vols() 
+    public function vols()
     {
-        return $this->belongTo( Vol::class );
+        return $this->belongTo(Vol::class);
     }
-    public function Chambres() 
+    public function Chambres()
     {
-        return $this->belongTo( Chambre::class );
+        return $this->belongTo(Chambre::class);
     }
-    public function transports() 
+    public function transports()
     {
-        return $this->belongTo( Transport::class );
+        return $this->belongTo(Transport::class);
     }
-    public function services() 
+    public function services()
     {
-        return $this->belongTo( Service::class );
+        return $this->belongTo(Service::class);
     }
     public function users()
     {

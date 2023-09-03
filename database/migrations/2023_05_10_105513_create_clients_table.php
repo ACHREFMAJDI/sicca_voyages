@@ -16,12 +16,12 @@ return new class extends Migration
             $table->integer("user_id");
             $table->string("nom");
             $table->string("prenom");
-            $table->string("pasport");
+            $table->string("cin");
+            $table->string("passeport");
             $table->string("tel");
             $table->string("email");
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
-
         });
     }
 

@@ -10,8 +10,6 @@ class Chambre extends Model
     use HasFactory;
     protected $fillable = [
         "id_hotel",
-        "id_pack",
-        "id_reservation",
         "n_place",
         "num",
         "date_debut",
