@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("h_arrivage");
             $table->string("h_depart");
             $table->string("type");
+            $table->string("n_place");
             $table->string("prix_achat");
             $table->string("prix_vente");
             $table->timestamps();
