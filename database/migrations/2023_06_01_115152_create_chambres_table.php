@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_hotel');
+            $table->integer('hotel_id');
             $table->string('n_place');
             $table->string('num');
             $table->string('date_debut');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('prix_vente');
             $table->string('num_etage');
             $table->timestamps();
-            $table->foreign("id_hotel")->references("id")->on("hotels")->onDelete("cascade");
+            $table->foreign("hotel_id")->references("id")->on("hotels")->onDelete("cascade");
         });
     }
 

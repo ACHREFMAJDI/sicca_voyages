@@ -9,7 +9,7 @@ class Chambre extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "id_hotel",
+        "hotel_id",
         "n_place",
         "num",
         "date_debut",

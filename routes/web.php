@@ -30,3 +30,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/vols', App\Http\Controllers\VolController::class);
+Route::resource('/chambres', App\Http\Controllers\ChambreController::class);
+Route::resource('/hotels', App\Http\Controllers\HotelController::class);
