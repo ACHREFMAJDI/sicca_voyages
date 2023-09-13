@@ -32,3 +32,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/vols', App\Http\Controllers\VolController::class);
 Route::resource('/chambres', App\Http\Controllers\ChambreController::class);
 Route::resource('/hotels', App\Http\Controllers\HotelController::class);
+Route::resource('/transports', App\Http\Controllers\TransportController::class);
+Route::resource('/services', App\Http\Controllers\ServiceController::class);
+Route::resource('/clients', App\Http\Controllers\ClientController::class);

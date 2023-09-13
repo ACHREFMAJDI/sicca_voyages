@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments("id");
             $table->string("date_depart");
             $table->string("date_fin");
+            $table->string("heure_depart");
             $table->string("heure_arrivage");
             $table->string("num");
             $table->string("type");

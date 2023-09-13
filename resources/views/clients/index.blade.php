@@ -1,0 +1,96 @@
+@extends('layouts.app')
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>client Page</h2>
+            <ol>
+                <li><a href="index.html">client</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+@section('content')
+<div class="row px-5">
+    <div class="col-md-12">
+        <a style="margin: 19px;" href="{{ route('clients.create')}}" class="get-started-btn scrollto"><b>Ajouter un nouveau
+                client</b></a>
+    </div>
+    <div class="col-md-12">
+        <div style="display:block;position:relative;height:300px;overflow:auto;">
+            <table class="table table-hover table-condensed ">
+                <thead>
+                    <tr style="border: 2px solid #ffc451;border-radius: 4px;">
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>ID client</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>nom d'utilisateaur</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>nom de client</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>prenom</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>cin</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>passeport</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>email</b></font>
+                        </th>
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>tel</b></font>
+                        </th>
+                        <th style="background-color:#313131;text-align:center;" colspan="4">
+                            <font color="white"><b>Actions</b></font>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach($clients as $client)
+                    <tr>
+                        <td style="vertical-align:middle;">{{$client->id}}</td>
+                        <td style="vertical-align:middle;">{{$client->user_name}}</td>
+                        <td style="vertical-align:middle;">{{$client->nom}}</td>
+                        <td style="vertical-align:middle;">{{$client->prenom}}</td>
+                        <td style="vertical-align:middle;">{{$client->cin}}</td>
+                        <td style="vertical-align:middle;">{{$client->passeport}}</td>
+                        <td style="vertical-align:middle;">{{$client->email}}</td>
+                        <td style="vertical-align:middle;">{{$client->tel}}</td>
+                        <td colspan="2"></td>
+                        <td>
+                            <a href="{{ route('clients.edit',$client->id)}}" class="btn btn-primary">Edit</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('clients.destroy', $client->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">X</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
+
+
+
+@endsection
