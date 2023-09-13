@@ -4,9 +4,9 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Vol Create</h2>
+            <h2>chambre Create</h2>
             <ol>
-                <li><a href="/vols">Vol</a></li>
+                <li><a href="/chambres">chambre</a></li>
                 <li>create</li>
             </ol>
         </div>
@@ -27,29 +27,31 @@
                 </ul>
             </div><br />
             @endif
-            <form method="post" action="{{ route('vols.store') }}">
+            <form method="post" action="{{ route('chambres.store') }}">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 ">
                         <div class="form-group">
-                            <label for="vol">n_vol:</label>
-                            <input type="text" class="form-control" name="n_vol" />
-                        </div>
-                        <div class="form-group">
-                            <label for="ville">date_depart:</label>
-                            <input type="text" class="form-control" name="date_depart" />
-                        </div>
-                        <div class="form-group">
-                            <label for="edresse">h_depart:</label>
-                            <input type="text" class="form-control" name="h_depart" />
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="vol">date_achat:</label>
-                            <input type="text" class="form-control" name="date_achat" />
+                            <label for="chambre">Nom Hotel:</label>
+                            <select name='getHotel' class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option>Open hotels menu</option>
+                                @foreach ($hotels as $hotel)
+                                <option value='{{ $hotel->id }}'>
+                                    {{ $hotel->hnom }}
+                                </option>
+                                @endforeach
+                            </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="num_etage">Numero etage:</label>
+                            <input type="text" class="form-control" name="num_etage" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date_debut">Date debut:</label>
+                            <input type="text" class="form-control" name="date_debut" />
+                        </div>
 
                         <div class="form-group">
                             <label for="ville">prix_achat:</label>
@@ -58,22 +60,20 @@
                     </div>
                     <div class="col-md-6 ">
                         <div class="form-group">
-                            <label for="ville">n_place:</label>
+                            <label for="n_place">Numero de place:</label>
                             <input type="text" class="form-control" name="n_place" />
                         </div>
 
                         <div class="form-group">
-                            <label for="edresse">date_arrivée:</label>
-                            <input type="text" class="form-control" name="date_arrivée" />
+                            <label for="num">Numero de chambre:</label>
+                            <input type="text" class="form-control" name="num" />
                         </div>
+
                         <div class="form-group">
-                            <label for="edresse">h_arrivage:</label>
-                            <input type="text" class="form-control" name="h_arrivage" />
+                            <label for="date_fin">Date fin:</label>
+                            <input type="text" class="form-control" name="date_fin" />
                         </div>
-                        <div class="form-group">
-                            <label for="edresse">type:</label>
-                            <input type="text" class="form-control" name="type" />
-                        </div>
+
                         <div class="form-group">
                             <label for="edresse">prix_vente:</label>
                             <input type="text" class="form-control" name="prix_vente" />
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card" style="margin-top: 2rem;">
-                            <button type="submit" class="get-started-btn scrollto">Ajouter le vol</button>
+                            <button type="submit" class="get-started-btn scrollto">Ajouter le chambre</button>
                         </div>
                     </div>
                 </div>
@@ -92,6 +92,23 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

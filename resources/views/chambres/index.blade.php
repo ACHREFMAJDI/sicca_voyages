@@ -4,9 +4,9 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Vol Page</h2>
+            <h2>chambre Page</h2>
             <ol>
-                <li><a href="index.html">Vol</a></li>
+                <li><a href="index.html">chambre</a></li>
             </ol>
         </div>
 
@@ -15,8 +15,8 @@
 @section('content')
 <div class="row px-5">
     <div class="col-md-12">
-        <a style="margin: 19px;" href="{{ route('vols.create')}}" class="get-started-btn scrollto"><b>Ajouter un nouveau
-                vol</b></a>
+        <a style="margin: 19px;" href="{{ route('chambres.create')}}" class="get-started-btn scrollto"><b>Ajouter un nouveau
+                chambre</b></a>
     </div>
     <div class="col-md-12">
         <div style="display:block;position:relative;height:300px;overflow:auto;">
@@ -24,37 +24,35 @@
                 <thead>
                     <tr style="border: 2px solid #ffc451;border-radius: 4px;">
                         <th style="background-color:#313131;">
-                            <font color="white"><b>ID vol</b></font>
+                            <font color="white"><b>ID chambre</b></font>
+                        </th>
+
+                        <th style="background-color:#313131;">
+                            <font color="white"><b>Nom hotel</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>numero vol</b></font>
+                            <font color="white"><b>Numero etage</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>date achat</b></font>
+                            <font color="white"><b>Numero chambre</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>date depart</b></font>
+                            <font color="white"><b>Date debut</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>h depart</b></font>
+                            <font color="white"><b>Date fin</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>date arrivée</b></font>
-                        </th>
-                        <th style="background-color:#313131;">
-                            <font color="white"><b>h arrivage</b></font>
+                            <font color="white"><b>Numero place</b></font>
                         </th>
                         <th style="background-color:#313131;">
                             <font color="white"><b>type</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>numero place</b></font>
+                            <font color="white"><b>Prix achat</b></font>
                         </th>
                         <th style="background-color:#313131;">
-                            <font color="white"><b>prix achat</b></font>
-                        </th>
-                        <th style="background-color:#313131;">
-                            <font color="white"><b>prix vente</b></font>
+                            <font color="white"><b>Prix vente</b></font>
                         </th>
                         <th style="background-color:#313131;text-align:center;" colspan="4">
                             <font color="white"><b>Actions</b></font>
@@ -63,25 +61,23 @@
                 </thead>
 
                 <tbody>
-                    @foreach($vols as $vol)
+                    @foreach($chambres as $chambre)
                     <tr>
-                        <td style="vertical-align:middle;">{{$vol->id}}</td>
-                        <td style="vertical-align:middle;">{{$vol->n_vol}}</td>
-                        <td style="vertical-align:middle;">{{$vol->date_achat}}</td>
-                        <td style="vertical-align:middle;">{{$vol->date_depart}}</td>
-                        <td style="vertical-align:middle;">{{$vol->h_depart}}</td>
-                        <td style="vertical-align:middle;">{{$vol->date_arrivée}}</td>
-                        <td style="vertical-align:middle;">{{$vol->h_arrivage}}</td>
-                        <td style="vertical-align:middle;">{{$vol->type}}</td>
-                        <td style="vertical-align:middle;">{{$vol->n_place}}</td>
-                        <td style="vertical-align:middle;">{{$vol->prix_achat}}</td>
-                        <td style="vertical-align:middle;">{{$vol->prix_vente}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->id}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->hotel_nom}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->num_etage}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->num}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->date_debut}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->date_fin}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->n_place}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->prix_achat}}</td>
+                        <td style="vertical-align:middle;">{{$chambre->prix_vente}}</td>
                         <td colspan="2"></td>
                         <td>
-                            <a href="{{ route('vols.edit',$vol->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('chambres.edit',$chambre->id)}}" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <form action="{{ route('vols.destroy', $vol->id)}}" method="post">
+                            <form action="{{ route('chambres.destroy', $chambre->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">X</button>
