@@ -13,7 +13,8 @@ class Reservation extends Model
         "id_vol",
         "id_chambre",
         "id_transport",
-        "id_service"
+        "id_service",
+        "user_id",
     ];
     public function factures()
     {

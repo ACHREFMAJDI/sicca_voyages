@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign("id_transport")->references("id")->on("transports")->onDelete("cascade");
             $table->foreign("id_service")->references("id")->on("services")->onDelete("cascade");
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
-
         });
     }
 

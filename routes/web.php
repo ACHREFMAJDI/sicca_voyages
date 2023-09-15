@@ -35,3 +35,4 @@ Route::resource('/hotels', App\Http\Controllers\HotelController::class);
 Route::resource('/transports', App\Http\Controllers\TransportController::class);
 Route::resource('/services', App\Http\Controllers\ServiceController::class);
 Route::resource('/clients', App\Http\Controllers\ClientController::class);
+Route::resource('/reservations', App\Http\Controllers\ReservationController::class);
